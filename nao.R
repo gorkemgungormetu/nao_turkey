@@ -1,0 +1,6 @@
+library(psych)
+nao<-read.csv("nao-index.csv",sep = ",",header = TRUE)
+nao.cleaned<-subset(nao,!is.na(nao$NAtl..Oscillation))
+describe(nao.cleaned[2:6])
+pairs.panels(nao.cleaned[2:6])
+print(corr.test(nao[2:6],method = "pearson"),short=FALSE)
